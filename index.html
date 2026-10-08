@@ -1,8 +1,60 @@
-<html>
-	<head>
-		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-		<meta http-equiv="refresh" content="0; url=https://RomainCharpentier.github.io/My-Resume" />
-		<title>Redirection html</title>
-		<meta name="robots" content="noindex,follow" />
-	</head>
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Romain Charpentier · Développeur Full Stack</title>
+  <meta name="description" content="CV de Romain Charpentier, développeur full stack et lead technique (Java, TypeScript, IA agentique).">
+  <link rel="stylesheet" href="style.css">
+  <script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+</head>
+<body>
+  <div class="page">
+    <aside class="side">
+      <div class="who">
+        <h1 id="name"></h1>
+        <p id="title"></p>
+        <p class="links" id="links"></p>
+      </div>
+
+      <section aria-labelledby="h-skills">
+        <h2 id="h-skills">Compétences</h2>
+        <p class="note">Clique pour voir où je les ai utilisées.</p>
+        <div id="skills"></div>
+      </section>
+
+      <section>
+        <h2>Formation</h2>
+        <ul class="plain" id="edu"></ul>
+        <h2>Conférences</h2>
+        <ul class="plain" id="training"></ul>
+      </section>
+
+      <div class="actions">
+        <button id="theme" type="button">Thème</button>
+        <button id="print" type="button">PDF</button>
+      </div>
+    </aside>
+
+    <main>
+      <p class="intro" id="intro"></p>
+
+      <section aria-labelledby="h-exp">
+        <div class="head">
+          <h2 id="h-exp">Expériences</h2>
+          <button id="expand" type="button">Tout déplier</button>
+        </div>
+        <p class="status" id="status" aria-live="polite" hidden></p>
+        <div id="experiences"></div>
+      </section>
+
+      <section aria-labelledby="h-proj">
+        <h2 id="h-proj">Projets personnels</h2>
+        <ul class="plain" id="projects"></ul>
+      </section>
+    </main>
+  </div>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
 </html>
