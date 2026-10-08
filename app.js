@@ -149,8 +149,13 @@
     document.documentElement.dataset.theme = next;
     try { localStorage.setItem("theme", next); } catch (e) {}
   });
-  $("print").addEventListener("click", function () {
-    document.querySelectorAll(".mission details").forEach(function (d) { d.open = true; });
-    window.print();
+  // Ouvre les détails avant toute impression (bouton PDF ou Ctrl+P) et remet l'état d'avant ensuite.
+  var wasOpen = [];
+  window.addEventListener("beforeprint", function () {
+    wasOpen = Array.prototype.map.call(document.querySelectorAll(".mission details"), function (d) { var o = d.open; d.open = true; return o; });
   });
+  window.addEventListener("afterprint", function () {
+    document.querySelectorAll(".mission details").forEach(function (d, i) { d.open = !!wasOpen[i]; });
+  });
+  $("print").addEventListener("click", function () { window.print(); });
 })();

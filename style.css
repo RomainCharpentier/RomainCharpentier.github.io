@@ -105,3 +105,36 @@ main section + section { margin-top: 56px; }
 .shot:hover img { transform: scale(1.02); }
 @media print { .shot { display: none; } .fig { break-inside: avoid; } }
 .photo[hidden] { display: none; }
+
+/* ---- Impression : mise en page A4 dédiée (écrase le rendu mobile, force le thème clair) ---- */
+@page { size: A4; margin: 12mm; }
+@media print {
+  :root:root:root { --bg: #fff; --ink: #111; --muted: #4a4f59; --line: #cfd2d8; --accent: #1f4fd8; --hit: transparent; --side: #fff; }
+  html, body { background: #fff !important; color: #111; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font-size: 9pt; line-height: 1.38; }
+  .page { display: grid !important; grid-template-columns: 52mm minmax(0, 1fr); gap: 0 8mm; max-width: none; min-height: 0; }
+  .side { position: static; height: auto; overflow: visible; background: none; border: 0; border-right: 1px solid var(--line); padding: 0 6mm 0 0; }
+  main { padding: 0; }
+  .photo { width: 26mm; height: 26mm; margin-bottom: 4mm; }
+  h1 { font-size: 17pt; }
+  h2 { margin: 6mm 0 2mm; }
+  main section + section { margin-top: 6mm; }
+  .intro { font-size: 10pt; margin-bottom: 4mm; max-width: none; }
+  .note, .actions, .head button, .status, .fig, .shot, .alltech, .mission summary { display: none !important; }
+  .mission details { margin-top: 0; }
+  .mission li { margin: 2px 0; font-size: 9pt; }
+  .sum { font-size: 9pt; }
+  .sk { margin-bottom: 2mm; }
+  .skill, .skill.on { border: 0; background: none; padding: 0; margin: 0; }
+  .exp, .exp.dim, .mission.dim, .exp.dim .mission.dim { opacity: 1 !important; filter: none; }
+  .exp { grid-template-columns: 26mm minmax(0, 1fr) !important; gap: 0 4mm !important; padding: 3mm 0; break-inside: auto; }
+  .when span, .when small { display: block; }
+  .when small::before { content: none; }
+  .logo { width: 9mm; height: 9mm; }
+  .exp h3, .mission h4 { break-after: avoid; }
+  .mission li, .mission .sum, .tech { break-inside: avoid; }
+  .mission + .mission { margin-top: 4mm; padding-top: 3mm; }
+  .tech span.hit { background: none; padding: 0; margin: 0; }
+  #projects li { max-width: none; }
+  a { color: inherit; text-decoration: none; }
+}
