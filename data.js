@@ -2,6 +2,7 @@
 window.CV = {
   name: "Romain Charpentier",
   title: "Développeur Full Stack, lead technique",
+  photo: "assets/photo.jpg",
   intro:
     "Développeur full stack Java / TypeScript, lead technique chez Nickel. Je conçois des systèmes critiques maintenables, dans la banque, l'assurance et le secteur public, et j'introduis l'IA agentique dans les pratiques d'équipe.",
   links: [
@@ -22,12 +23,13 @@ window.CV = {
   ],
   training: ["Test Driven Development", "Domain-Driven Design stratégique, Event Storming", "DevFest Nantes"],
   projects: [
-    { name: "blindtest-webapp", desc: "Application web de blind test musical.", href: "https://blindtest-webapp.vercel.app" },
+    { name: "No Peeking (blindtest-webapp)", desc: "Blind test en ligne : chansons, séries, animes, films et jeux, en solo ou en multijoueur, avec un éditeur de questions.", href: "https://blindtest-webapp.vercel.app", img: "assets/no-peeking.jpg", alt: "Accueil de No Peeking : créer une partie, rejoindre un salon, éditeur de questions" },
     { name: "Auto-hébergement, automatisation, IA", desc: "Projets personnels d'expérimentation." },
   ],
   experiences: [
     {
       company: "Nickel",
+      logo: "assets/nickel.svg",
       about: "FinTech du groupe BNP Paribas",
       role: "Développeur Full Stack, puis lead développeur",
       from: "2022-11",
@@ -50,12 +52,14 @@ window.CV = {
             "Maintenance et décommissionnement du legacy .NET et T-SQL.",
             "Incidents et bugs en lien direct avec les utilisateurs, organisation des mises en production.",
           ],
+          figures: ["clean", "agent"],
           tech: ["Java 25", "Spring Boot", "Spring Batch", "Kafka", "TypeScript", "React", "Vite", "Micro-frontend", "MSSQL", "Liquibase", "JUnit", "Mockito", "Jest", "ArchUnit", "Clean Architecture", "Gemini Code Assist", "gemini-cli"],
         },
       ],
     },
     {
       company: "Thales",
+      logo: "assets/thales.svg",
       about: "Aérospatiale, défense, sécurité",
       role: "Développeur Full Stack",
       from: "2021-10",
@@ -87,6 +91,7 @@ window.CV = {
     },
     {
       company: "Cat-Amania",
+      logo: "assets/cat-amania.svg",
       about: "ESN, transformation digitale",
       role: "Développeur Full Stack (alternance puis CDI)",
       from: "2018-07",

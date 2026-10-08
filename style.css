@@ -88,3 +88,20 @@ main section + section { margin-top: 56px; }
   .exp { break-inside: avoid; }
   a { color: inherit; }
 }
+
+.photo { display: block; width: 112px; height: 112px; border-radius: 50%; object-fit: cover; margin-bottom: 18px; border: 1px solid var(--line); }
+.co { display: flex; gap: 12px; align-items: center; margin-bottom: 14px; }
+.co .role { margin: 0; }
+.logo { width: 36px; height: 36px; border-radius: 9px; flex: none; }
+.fig { margin: 16px 0 4px; }
+.fig svg { width: 100%; height: auto; display: block; }
+.fig figcaption { font-size: 13px; color: var(--muted); margin-top: 6px; }
+.f-label { font: 600 12px system-ui, sans-serif; fill: var(--muted); letter-spacing: .06em; text-transform: uppercase; }
+.f-title { font: 600 16px system-ui, sans-serif; fill: var(--ink); }
+.f-small { font: 13px system-ui, sans-serif; fill: var(--muted); }
+#projects li { max-width: 400px; }
+.shot { display: block; margin-bottom: 10px; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; line-height: 0; }
+.shot img { width: 100%; height: auto; aspect-ratio: 2000 / 1463; object-fit: cover; transition: transform .2s; }
+.shot:hover img { transform: scale(1.02); }
+@media print { .shot { display: none; } .fig { break-inside: avoid; } }
+.photo[hidden] { display: none; }

@@ -27,6 +27,7 @@
   // --- Static content ---
   $("name").textContent = cv.name;
   $("title").textContent = cv.title;
+  if (cv.photo) { var ph = $("photo"); ph.src = cv.photo; ph.alt = "Portrait de " + cv.name; ph.hidden = false; }
   $("intro").textContent = cv.intro;
   $("links").innerHTML = cv.links.map(function (l) {
     return '<a href="' + esc(l.href) + '" target="_blank" rel="noopener">' + esc(l.label) + "</a>";
@@ -37,7 +38,8 @@
   $("training").innerHTML = cv.training.map(function (t) { return "<li>" + esc(t) + "</li>"; }).join("");
   $("projects").innerHTML = cv.projects.map(function (p) {
     var name = p.href ? '<a href="' + esc(p.href) + '" target="_blank" rel="noopener">' + esc(p.name) + "</a>" : esc(p.name);
-    return "<li><strong>" + name + "</strong><span>" + esc(p.desc) + "</span></li>";
+    var img = p.img ? '<a class="shot" href="' + esc(p.href) + '" target="_blank" rel="noopener"><img src="' + esc(p.img) + '" alt="' + esc(p.alt || p.name) + '" loading="lazy" width="400" height="293"></a>' : "";
+    return "<li>" + img + "<strong>" + name + "</strong><span>" + esc(p.desc) + "</span></li>";
   }).join("");
 
   // --- Skills ---
@@ -61,6 +63,10 @@
         ? '<details><summary>Autres responsabilités</summary><ul>' +
           m.more.map(function (b) { return "<li>" + esc(b) + "</li>"; }).join("") + "</ul></details>"
         : "") +
+      (m.figures || []).map(function (k) {
+        var f = window.FIGURES && window.FIGURES[k];
+        return f ? '<figure class="fig">' + f.svg + "<figcaption>" + esc(f.caption) + "</figcaption></figure>" : "";
+      }).join("") +
       '<p class="tech">' + m.tech.map(function (t) { return '<span data-t="' + esc(t) + '">' + esc(t) + "</span>"; }).join(", ") + "</p>" +
       "</div>"
     );
@@ -70,8 +76,8 @@
     return (
       '<article class="exp">' +
       '<div class="when"><span>' + fmt(e.from) + " – " + (cur ? "aujourd'hui" : fmt(e.to)) + "</span><small>" + duration(e.from, e.to) + "</small></div>" +
-      '<div class="what"><h3>' + esc(e.company) + ' <span class="about">' + esc(e.about) + "</span></h3>" +
-      '<p class="role">' + esc(e.role) + "</p>" +
+      '<div class="what"><div class="co">' + (e.logo ? '<img class="logo" src="' + esc(e.logo) + '" alt="" width="36" height="36">' : "") + "<div><h3>" + esc(e.company) + ' <span class="about">' + esc(e.about) + "</span></h3>" +
+      '<p class="role">' + esc(e.role) + "</p></div></div>" +
       e.missions.map(missionHtml).join("") + "</div></article>"
     );
   }).join("");
